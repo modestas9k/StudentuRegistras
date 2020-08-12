@@ -2,8 +2,19 @@
     <div class="home">
         <div class="section">
             <div class="container">
+                <h1 class="title ">List of students</h1>
+                <div class="buttons is-right">
+                    <div class="control">
+                        <router-link
+                            to="/add"
+                            class="button is-primary is-outlined"
+                        >
+                            Add student
+                        </router-link>
+                    </div>
+                </div>
                 <table class="table is-striped box is-hoverable is-fullwidth">
-                    <thead class="subtitle">
+                    <thead class="title is-6">
                         <tr>
                             <td>Name</td>
                             <td>Surname</td>

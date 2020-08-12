@@ -36,7 +36,7 @@
                         <button
                             v-if="loggedIn"
                             v-on:click="logout()"
-                            class="button is-light"
+                            class="button is-danger is-outlined"
                         >
                             Logout
                         </button>
