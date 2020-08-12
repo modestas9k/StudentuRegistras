@@ -1,47 +1,53 @@
 <template>
     <div class="register">
-        <Notification
-            :display="error"
-            type="is-danger"
-            :message="errorMessage"
-        />
-        <form v-on:submit.prevent="register">
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control">
-                    <input
-                        class="input"
-                        type="email"
-                        v-model="email"
-                        placeholder="e.g. alexsmith@gmail.com"
-                    />
-                </div>
-            </div>
+        <div class="section">
+            <div class="container box max">
+                <h1 class="title">Register</h1>
+                <Notification
+                    v-if="notification"
+                    v-on:close="notification = false"
+                    :type="type"
+                    :message="Message"
+                />
+                <form v-on:submit.prevent="register">
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input
+                                class="input"
+                                type="email"
+                                v-model="email"
+                                placeholder="e.g. alexsmith@gmail.com"
+                            />
+                        </div>
+                    </div>
 
-            <div class="field">
-                <label class="label">Password</label>
-                <div class="control">
-                    <input
-                        class="input"
-                        v-model="password"
-                        type="password"
-                        placeholder="Password"
-                    />
-                </div>
-            </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input
+                                class="input"
+                                v-model="password"
+                                type="password"
+                                placeholder="Password"
+                            />
+                        </div>
+                    </div>
 
-            <div class="field">
-                <div class="control">
-                    <button
-                        class="button is-primary"
-                        :class="loading && 'is-loading'"
-                        type="submit"
-                    >
-                        Register
-                    </button>
-                </div>
+                    <div class="field">
+                        <div class="control">
+                            <button
+                                class="button is-primary"
+                                :class="loading && 'is-loading'"
+                                type="submit"
+                            >
+                                Register
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
 </template>
 
@@ -57,8 +63,8 @@ export default {
         return {
             email: "",
             password: "",
-            error: false,
-            errorMessage: "",
+            notification: false,
+            Message: "",
             loading: false,
         };
     },
@@ -71,8 +77,9 @@ export default {
                 .then(
                     () => this.$router.push("/"),
                     (error) => {
-                        this.error = true;
-                        this.errorMessage = error.message;
+                        this.notification = true;
+                        this.type = "is-danger";
+                        this.Message = error.message;
                         this.loading = false;
                     }
                 );
@@ -80,3 +87,10 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.max {
+    max-width: 600px;
+    margin: 0 auto;
+}
+</style>
