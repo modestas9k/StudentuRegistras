@@ -2,14 +2,24 @@
     <div class="addstudent">
         <div class="section">
             <div class="container">
-                <Notification
-                    v-if="notification"
-                    v-on:close="notification = false"
-                    :type="type"
-                    :message="Message"
-                />
                 <form v-on:submit.prevent="add" class="box">
                     <h1 class="title is-2">Add Student</h1>
+                    <Notification
+                        v-if="notification"
+                        v-on:close="notification = false"
+                        :type="type"
+                        :message="Message"
+                    />
+                    <div class="buttons is-right">
+                        <div class="control">
+                            <router-link
+                                to="/"
+                                class="button is-primary is-outlined"
+                            >
+                                Back
+                            </router-link>
+                        </div>
+                    </div>
                     <div class="field">
                         <label class="label">Name</label>
                         <div class="control">
@@ -63,7 +73,7 @@
                             <input
                                 class="input"
                                 v-model="bdate"
-                                type="text"
+                                type="date"
                                 placeholder="1994-01-20"
                                 required
                             />

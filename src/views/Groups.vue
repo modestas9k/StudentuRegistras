@@ -75,8 +75,6 @@ export default {
                         studentList: [],
                     });
 
-                    console.log(groupDoc.data().studentList);
-
                     groupDoc.data().studentList.forEach((itemId) => {
                         firebase
                             .firestore()
@@ -88,13 +86,15 @@ export default {
                                     (group) => group.id === groupDoc.id
                                 );
 
-                                group.studentList.push({
-                                    id: itemId,
-                                    fullName:
-                                        studentDoc.data().name +
-                                        " " +
-                                        studentDoc.data().surname,
-                                });
+                                if (studentDoc.exists) {
+                                    group.studentList.push({
+                                        id: itemId,
+                                        fullName:
+                                            studentDoc.data().name +
+                                            " " +
+                                            studentDoc.data().surname,
+                                    });
+                                }
                             });
                     });
                 })

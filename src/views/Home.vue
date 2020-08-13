@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <div class="section">
-            <div class="container">
+            <div class="container box">
                 <h1 class="title ">List of students</h1>
                 <div class="buttons is-right">
                     <div class="control">
@@ -13,7 +13,7 @@
                         </router-link>
                     </div>
                 </div>
-                <table class="table is-striped box is-hoverable is-fullwidth">
+                <table class="table is-striped  is-hoverable is-fullwidth">
                     <thead class="title is-6">
                         <tr>
                             <td>Name</td>

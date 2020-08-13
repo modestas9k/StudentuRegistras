@@ -10,6 +10,16 @@
                         :type="type"
                         :message="Message"
                     />
+                    <div class="buttons is-right">
+                        <div class="control">
+                            <router-link
+                                to="/groups"
+                                class="button is-primary is-outlined"
+                            >
+                                Back
+                            </router-link>
+                        </div>
+                    </div>
                     <div class="field">
                         <label class="label" for="class">Class Name</label>
                         <input
