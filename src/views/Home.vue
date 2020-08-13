@@ -22,17 +22,23 @@
                             <td>Date of birth</td>
                             <td>Phone</td>
                             <td>Email</td>
+                            <td>Edit Student</td>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr v-for="item in studentsList" :key="item">
+                        <tr v-for="item in studentsList" :key="item.id">
                             <td>{{ item.name }}</td>
                             <td>{{ item.surname }}</td>
                             <td>{{ item.gender }}</td>
                             <td>{{ item.bdate }}</td>
                             <td>{{ item.phone }}</td>
                             <td>{{ item.email }}</td>
+                            <td>
+                                <router-link :to="/editstudent/ + item.id">
+                                    Edit
+                                </router-link>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,6 +66,7 @@ export default {
             .then((snapshot) =>
                 snapshot.docs.forEach((doc) => {
                     this.studentsList.push({
+                        id: doc.id,
                         name: doc.data().name,
                         surname: doc.data().surname,
                         gender: doc.data().gender,

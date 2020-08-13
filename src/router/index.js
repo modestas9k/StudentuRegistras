@@ -16,10 +16,41 @@ const routes = [
         },
     },
     {
-        path: "/about",
-        name: "About",
+        path: "/groups",
+        name: "Groups",
         component: () =>
-            import(/* webpackChunkName: "about" */ "../views/About.vue"),
+            import(/* webpackChunkName: "groups" */ "../views/Groups.vue"),
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/addgroup",
+        name: "AddGroup",
+        component: () =>
+            import(/* webpackChunkName: "addgroup" */ "../views/AddGroup.vue"),
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/editgroup/:id",
+        name: "Edit Group",
+        component: () =>
+            import(
+                /* webpackChunkName: "editgroup" */ "../views/EditGroup.vue"
+            ),
+        meta: {
+            requiresAuth: true,
+        },
+    },
+    {
+        path: "/editstudent/:id",
+        name: "Edit Student",
+        component: () =>
+            import(
+                /* webpackChunkName: "editstudent" */ "../views/EditStudent.vue"
+            ),
         meta: {
             requiresAuth: true,
         },

@@ -67,7 +67,10 @@ export default {
         return {
             loggedIn: false,
             email: "",
-            links: [{ name: "Home", url: "/" }],
+            links: [
+                { name: "Home", url: "/" },
+                { name: "Groups", url: "/groups" },
+            ],
         };
     },
     methods: {
